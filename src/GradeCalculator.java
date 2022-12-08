@@ -63,4 +63,8 @@ public class GradeCalculator {
         System.out.print("%");
     }
 
+    public static void GPAcalculator(){
+        System.out.println("Your GPA");
+    }
+
 }
