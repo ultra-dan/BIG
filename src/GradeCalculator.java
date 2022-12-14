@@ -80,6 +80,8 @@ public class GradeCalculator {
 
     public static void GPAcalculator() {
         System.out.println("Your GPA");
+        System.out.println("soemtnintes");
+        System.out.println("jif peanut butter");
     }
 
 
