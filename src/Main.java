@@ -3,6 +3,9 @@ import static java.lang.Math.*; //math
 import java.util.*; //<arrayList>
 public class Main {
     public static void main(String[] args) {
+        /*
+        some excersize for cps 150
+         */
         int[] f = {5, 2, 364, 346, 73345, 364, 73};
         int[] d = {2, 432, 2, 5, 62, 35, 26, 3253};
         System.out.println(mergeSorted(f, d));
@@ -13,12 +16,12 @@ public class Main {
         int[] merge= new int[a.length+b.length];
         //merge the parameter arrays into new array
         int p=0;
-        for(int pos: a){
-            merge[p]=pos;
+        for(int i=0;i<a.length;i++){
+            merge[p]=a[i];
             p++;
         }
-        for(int pos: b){
-            merge[p]=pos;
+        for(int i=0;i<b.length;i++){
+            merge[p]=b[i];
             p++;
         }
 
@@ -39,7 +42,7 @@ public class Main {
 
         String to="";
         for(int string: merge){
-            to=string+", ";
+            to+=string+" ";
         }
         return to;
     }
