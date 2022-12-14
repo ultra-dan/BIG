@@ -11,36 +11,51 @@ public class GradeCalculator {
     private static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Program that calculates your grade!\n " +
+        System.out.println("Program that calculates your grade!\n" +
                 "Enter the percent of an assignment then the percent weight.\n" +
                 "That's it, have fun! :)" +
-                "Coming soon: How to calculate your GPA????");
+                "Coming soon: How to calculate your GPA????\n" +
+                "0) weightGrade\n" +
+                "1) GPAcalculator");
         try {
-            /*
-            Try doing a switch like in the text editor for
-            multiple different options of how to calculate your grade.
-             */
-            weightGrade();
-        } catch (InputMismatchException e) {
+            boolean play = true;
+            while (true) {
+                System.out.println("Which option?\nEnter a number:");
+                int num = scan.nextInt();
+                switch (num) {
+                    case 0:
+                        weightGrade();
+                        break;
+                    case 1:
+                        GPAcalculator();
+                        break;
+                    default:
+                        throw new NumberFormatException("incorrect input!");
+                }//end case
+            }//end while
+        }//end try
+        catch (InputMismatchException e) {
             System.out.println("Enter a number: ");
-            int a = scan.nextInt();//how does this work? check the text editor
-            int b = scan.nextInt();//Even if the wrong input is entered, the program still runs
-        } catch (Exception e) {
-            System.out.println("Unknown problem");
-        }
-    }
+            scan.nextInt();//how does this work? check the text editor -- Even if the wrong input is entered, the program still runs
+        }//end 1 catch
+        catch (Exception e) {
+            System.out.println("Unknown problem! STOP");
+            System.exit(0);
+        }//end 2 catch
+    }//end main
+
 
     public static void weightGrade() {
         /*
         Asks for weight and grade of each assignment and the grade
         accumulates after each assignment entered
          */
-        boolean ass = true;
+        boolean go = true;
         double grade = 0;
         double weightXScore = 0, weightTotal = 0;
         int totalNumOfAssignments = 0;
-        while (ass) {
-            System.out.println("Enter Assignment grade percent: ");
+        while (go) {
+            System.out.println("Welcome to weightGrade!\nEnter Assignment grade percent: ");
             double score = scan.nextDouble();
             System.out.println("Enter Assignment Weight:");
             double weight = scan.nextDouble();
@@ -53,7 +68,7 @@ public class GradeCalculator {
             String choice5 = scan.nextLine();
             if (choice5.equalsIgnoreCase("no") || choice5.equalsIgnoreCase("n")) {
                 grade = weightXScore / weightTotal;
-                ass = false;
+                go = false;
             }
 
         }
@@ -63,8 +78,9 @@ public class GradeCalculator {
         System.out.print("%");
     }
 
-    public static void GPAcalculator(){
+    public static void GPAcalculator() {
         System.out.println("Your GPA");
     }
+
 
 }
